@@ -33,19 +33,19 @@
 #define DISTANCE_DEL  1
 
 struct trienode {
-	char             id;
-	char             eow;
-	int              depth;
-	void            *data;
-	struct trie     *trie;
-	struct trienode *parent;
-	struct trienode *subnodes[255];
+        char             id;
+        char             eow;
+        int              depth;
+        void            *data;
+        struct trie     *trie;
+        struct trienode *parent;
+        struct trienode *subnodes[255];
 };
 
 struct trie {
-	struct trienode   root;
-	int               nodecnt;
-	size_t            len;
+        struct trienode   root;
+        int               nodecnt;
+        size_t            len;
 };
 
 struct trienode;
@@ -55,13 +55,13 @@ struct trie;
 typedef struct trie trie_t;
 
 struct trienodevec {
-	trienode_t **nodes;
-	unsigned cnt;
+        trienode_t **nodes;
+        unsigned cnt;
 };
 
 struct trienodevec_w {
-	struct trienodevec *vec;
-	const char *word;
+        struct trienodevec *vec;
+        const char *word;
 };
 
 trie_t *trie_new ();
@@ -73,10 +73,10 @@ void trie_destroy (trie_t *trie);
 void trie_destroy_bynode (trienode_t *node);
 
 int trie_measure (trie_t *trie, const char *word, trienode_t **nodes,
-		  int nodecnt);
+                  int nodecnt);
 
 int trie_measure_vec (trie_t *trie, const char *word,
-		      struct trienodevec *nodevec);
+                      struct trienodevec *nodevec);
 
 void trie_reset_search (trie_t *trie);
 
